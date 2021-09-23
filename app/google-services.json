@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "856879510048",
+    "project_id": "locationupdate-1ed20",
+    "storage_bucket": "locationupdate-1ed20.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:856879510048:android:8124c78d96229446ce0245",
+        "android_client_info": {
+          "package_name": "com.arsa.trackerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "856879510048-0re2qb4s6v5ki11b3fju16kjvt0vpfrj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCg_-tfqdUzsNvr15rkn94Kirt0AwqrK1E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "856879510048-0re2qb4s6v5ki11b3fju16kjvt0vpfrj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

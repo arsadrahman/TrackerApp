@@ -1,0 +1,11 @@
+package com.arsa.trackerapp.util
+
+object Constants {
+    val START_ACTION = "START_TRACKING_ACTION_SERVICE"
+    val STOP_ACTION = "STOP_TRACKING_ACTION_SERVICE"
+    val NOTIFICATION_NAME = "TRACKING USER"
+    val NOTIFICATION_CHANNEL_ID = "track_users"
+    val NOTIFICATION_ID = 101
+    val ACTIVITY_REQUEST_ID = 0
+    val PERMISSION_REQUEST = 232
+}
