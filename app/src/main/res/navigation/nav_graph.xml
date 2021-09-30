@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/a">
+    <fragment
+        android:id="@+id/a"
+        android:name="com.arsa.trackerapp.view.fragments.A"
+        android:label="fragment_a"
+        tools:layout="@layout/fragment_a" >
+        <action
+            android:id="@+id/action_a_to_b"
+            app:destination="@id/b" />
+    </fragment>
+    <fragment
+        android:id="@+id/b"
+        android:name="com.arsa.trackerapp.view.fragments.B"
+        android:label="fragment_b"
+        tools:layout="@layout/fragment_b" >
+        <action
+            android:id="@+id/action_b_to_c"
+            app:destination="@id/c" />
+    </fragment>
+    <fragment
+        android:id="@+id/c"
+        android:name="com.arsa.trackerapp.view.fragments.C"
+        android:label="fragment_c"
+        tools:layout="@layout/fragment_c" >
+        <action
+            android:id="@+id/action_c_to_d"
+            app:destination="@id/d" />
+    </fragment>
+    <fragment
+        android:id="@+id/e"
+        android:name="com.arsa.trackerapp.view.fragments.E"
+        android:label="fragment_e"
+        tools:layout="@layout/fragment_e" >
+        <action
+            android:id="@+id/action_e_to_a"
+            app:destination="@id/a" />
+    </fragment>
+    <fragment
+        android:id="@+id/d"
+        android:name="com.arsa.trackerapp.view.fragments.D"
+        android:label="fragment_d"
+        tools:layout="@layout/fragment_d" >
+        <action
+            android:id="@+id/action_d_to_e"
+            app:destination="@id/e" />
+    </fragment>
+</navigation>

@@ -1,7 +1,14 @@
 package com.arsa.trackerapp.model
 
-import android.location.Location
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.firebase.Timestamp
+import com.google.firebase.firestore.Exclude
 import com.google.firebase.firestore.GeoPoint
 
-data class LocationModel(val location: GeoPoint,val timestamp: Timestamp)
+
+@Entity(tableName = "offline_location")
+data class LocationModel(@PrimaryKey(autoGenerate = true)
+                          @get:Exclude val id:Int,val location: GeoPoint, val timestamp: Timestamp)
+
+

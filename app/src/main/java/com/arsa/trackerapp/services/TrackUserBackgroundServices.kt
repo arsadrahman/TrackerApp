@@ -4,6 +4,7 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.NotificationManager.IMPORTANCE_DEFAULT
 import android.app.NotificationManager.IMPORTANCE_LOW
 import android.app.PendingIntent
 import android.content.Context
@@ -22,7 +23,9 @@ import androidx.lifecycle.LifecycleService
 import androidx.lifecycle.MutableLiveData
 import com.arsa.trackerapp.R
 import com.arsa.trackerapp.repo.LocationRepository
+import com.arsa.trackerapp.repo.offline.OfflineRepository
 import com.arsa.trackerapp.util.Constants
+import com.arsa.trackerapp.util.InternetConnection
 import com.arsa.trackerapp.view.MainActivity
 import com.arsa.trackerapp.viewmodel.MainViewModel
 import com.google.android.gms.location.*
@@ -32,12 +35,15 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class TrackUserBackgroundServices : LifecycleService() {
+
     @Inject
     lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     @Inject
     lateinit var notificationBuilder:NotificationCompat.Builder
     @Inject
     lateinit var locationRepository: LocationRepository
+    @Inject
+    lateinit var offlineRepository:OfflineRepository
 
     var isServiceRunning: Boolean = false
 
@@ -89,7 +95,7 @@ class TrackUserBackgroundServices : LifecycleService() {
         var channel = NotificationChannel(
             Constants.NOTIFICATION_CHANNEL_ID,
             Constants.NOTIFICATION_NAME,
-            IMPORTANCE_LOW
+            IMPORTANCE_DEFAULT
         )
         notificationManager.createNotificationChannel(channel)
     }
@@ -102,7 +108,6 @@ class TrackUserBackgroundServices : LifecycleService() {
                 locationResult.locations.let { locations ->
                     for (location in locations) {
                         updateLocation.postValue(location)
-
                         uploadLocationToDataBase(location)
                     }
                 }
@@ -135,7 +140,11 @@ class TrackUserBackgroundServices : LifecycleService() {
     }
 
     fun uploadLocationToDataBase(location: Location){
-        locationRepository.updateLocation(location)
+        if(InternetConnection.isConnected(this))
+            locationRepository.updateLocation(location)
+        else
+            offlineRepository.updateLocation(location)
+
     }
 
 

@@ -40,5 +40,40 @@
         app:layout_constraintBottom_toTopOf="@+id/switch1"
         android:gravity="center_horizontal"></TextView>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="30dp"
+
+        app:layout_constraintTop_toBottomOf="@+id/switch1">
+
+        <Button
+            android:onClick="@{(view) -> activity.notify(view,1)}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/sound_one"></Button>
+
+        <Button
+            android:onClick="@{(view) -> activity.notify(view,2)}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/sound_two"></Button>
+
+        <Button
+            android:onClick="@{(view) -> activity.notify(view,3)}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/sound_three"></Button>
+
+        <Button
+            android:onClick="@{(view) -> activity.openActivity(view)}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:text="@string/open_navigation_activity_example"></Button>
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
