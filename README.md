@@ -5,4 +5,5 @@ Assignment - Create an app that tracks user location. The app should have an ena
 - Architecture Patterns - MVVM (Model-View-ViewModel)
 - Dependency Injection - Dagger Hilt
 - Database - Firebase Firestore
-
+- Databse Offline - RoomDB SQLLite
+- Jetpack Navigation - Single UI Activity
